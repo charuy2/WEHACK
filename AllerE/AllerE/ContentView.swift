@@ -1,15 +1,35 @@
-//
-//  ContentView.swift
-//  AllerE
-//
-//  Created by Pragnasri Vellanki on 23/3/2024.
-//
 import SwiftUI
-import UIKit
+import PythonKit
 
+// Global variable to store selected image
 class ImageSelection: ObservableObject {
     @Published var selectedImage: UIImage?
+    
+    func sendImageToPython() {
+        if let image = selectedImage,
+           let data = image.jpegData(compressionQuality: 1.0),
+           let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("image.jpg") {
+            do {
+                try data.write(to: path)
+                let python = Python.shared
+                python.run("""
+                    import sys
+                    sys.path.append('.')
+                    import main
+                    main.extract_allergens('\(path.path)')
+                """)
+            } catch {
+                print("Error writing image:", error)
+            }
+        }
+    }
 }
+
+// Global variable to store selected allergens
+class AllergenSelection: ObservableObject {
+    @Published var selectedAllergens: [String] = []
+}
+
 struct ContentView: View {
     var body: some View {
         NavigationView {
@@ -29,13 +49,8 @@ struct ContentView: View {
             .navigationTitle("Home")
             .navigationBarItems(trailing: EmptyView())
             .environmentObject(ImageSelection())
+            .environmentObject(AllergenSelection())
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
 
@@ -43,6 +58,7 @@ struct LoginView: View {
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var isLoggedIn: Bool = false
+    @State private var imageSelection = ImageSelection()
     
     var body: some View {
         NavigationView {
@@ -70,12 +86,12 @@ struct LoginView: View {
                 .padding()
                 
                 if isLoggedIn {
-                    NavigationLink(destination: ImageUploadView()) {
-                        Text("Go to Image Upload")
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                    NavigationLink(destination: AllergenSelectionView()) {
+                        Text("Proceed to Allergen Selection")
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.blue)
+                            .cornerRadius(10)
                     }
                 } else {
                     Text("Invalid username or password.")
@@ -84,13 +100,14 @@ struct LoginView: View {
             }
             .padding()
             .navigationBarTitle("Sign Out", displayMode: .inline)
-                        .onAppear {
-                            // Reset the fields when the view appears
-                            username = ""
-                            password = ""
-                            isLoggedIn = false
-                        }
+            .onAppear {
+                // Reset the fields when the view appears
+                username = ""
+                password = ""
+                isLoggedIn = false
+            }
         }
+        .environmentObject(imageSelection)
     }
     
     // Dummy authentication function
@@ -100,13 +117,46 @@ struct LoginView: View {
     }
 }
 
+struct AllergenSelectionView: View {
+    @EnvironmentObject var allergenSelection: AllergenSelection
+    @EnvironmentObject var imageSelection: ImageSelection
+    @State private var isImagePickerPresented: Bool = false
+    
+    let allergens = ["Gluten", "Dairy", "Shellfish", "Peanuts", "Tree Nuts", "Eggs", "Soy", "Fish", "Wheat", "Corn", "Sesame", "Sulfites", "Lupin", "Mustard", "Celery"]
+    
+    @State var allergies_values = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+    var body: some View {
+        VStack {
+            List {
+                ForEach(0..<allergens.count) { i in
+                    Toggle(allergens[i], isOn: $allergies_values[i])
+                }
+            }
+            
+            NavigationLink(destination: ImageUploadView()) {
+                Text("Proceed to Image Upload")
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            .padding()
+        }
+        .navigationTitle("Allergen Selection")
+        .onAppear {
+            // Send image to Python script when view appears
+            imageSelection.sendImageToPython()
+        }
+    }
+}
+
 struct ImageUploadView: View {
-    @State private var selectedImage: UIImage?
+    @EnvironmentObject var imageSelection: ImageSelection
     @State private var isImagePickerPresented: Bool = false
     
     var body: some View {
         VStack {
-            if let image = selectedImage {
+            if let image = imageSelection.selectedImage {
                 Image(uiImage: image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -128,7 +178,7 @@ struct ImageUploadView: View {
             .padding()
         }
         .sheet(isPresented: $isImagePickerPresented) {
-            ImagePicker(selectedImage: $selectedImage)
+            ImagePicker(selectedImage: $imageSelection.selectedImage)
         }
         .navigationTitle("Image Upload")
     }
@@ -167,3 +217,12 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
     }
 }
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+            .environmentObject(ImageSelection())
+            .environmentObject(AllergenSelection()) // Provide environment object for AllergenSelection
+    }
+}
+

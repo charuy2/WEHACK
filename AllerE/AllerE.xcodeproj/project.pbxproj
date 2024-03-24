@@ -14,6 +14,11 @@
 		661ED8792BAF4AD400DC5E0F /* AllerETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661ED8782BAF4AD400DC5E0F /* AllerETests.swift */; };
 		661ED8832BAF4AD400DC5E0F /* AllerEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661ED8822BAF4AD400DC5E0F /* AllerEUITests.swift */; };
 		661ED8852BAF4AD400DC5E0F /* AllerEUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661ED8842BAF4AD400DC5E0F /* AllerEUITestsLaunchTests.swift */; };
+		661ED8922BAF894800DC5E0F /* main.py in Resources */ = {isa = PBXBuildFile; fileRef = 661ED8912BAF894800DC5E0F /* main.py */; };
+		661ED8942BAF931D00DC5E0F /* aller_data.py in Resources */ = {isa = PBXBuildFile; fileRef = 661ED8932BAF931D00DC5E0F /* aller_data.py */; };
+		661ED89F2BAFC8F500DC5E0F /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 661ED89E2BAFC8F500DC5E0F /* PythonKit */; };
+		66D1EAEF2BAFD05500202996 /* allergy_check.py in Resources */ = {isa = PBXBuildFile; fileRef = 66D1EAEE2BAFD05500202996 /* allergy_check.py */; };
+		66D1EAF12BAFD06100202996 /* get_allergens.py in Resources */ = {isa = PBXBuildFile; fileRef = 66D1EAF02BAFD06100202996 /* get_allergens.py */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +41,7 @@
 /* Begin PBXFileReference section */
 		661ED8642BAF4AD100DC5E0F /* AllerE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllerE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		661ED8672BAF4AD100DC5E0F /* AllerEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllerEApp.swift; sourceTree = "<group>"; };
-		661ED8692BAF4AD100DC5E0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		661ED8692BAF4AD100DC5E0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../../../../../../../../../Users/pragnasrivellanki/Desktop/AllerE/AllerE/ContentView.swift; sourceTree = SDKROOT; };
 		661ED86B2BAF4AD400DC5E0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		661ED86E2BAF4AD400DC5E0F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		661ED8742BAF4AD400DC5E0F /* AllerETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllerETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +49,11 @@
 		661ED87E2BAF4AD400DC5E0F /* AllerEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllerEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		661ED8822BAF4AD400DC5E0F /* AllerEUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllerEUITests.swift; sourceTree = "<group>"; };
 		661ED8842BAF4AD400DC5E0F /* AllerEUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllerEUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		661ED8912BAF894800DC5E0F /* main.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = main.py; sourceTree = "<group>"; };
+		661ED8932BAF931D00DC5E0F /* aller_data.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = aller_data.py; sourceTree = "<group>"; };
+		661ED8992BAFC7F100DC5E0F /* Python3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python3.framework; path = Library/Frameworks/Python3.framework; sourceTree = DEVELOPER_DIR; };
+		66D1EAEE2BAFD05500202996 /* allergy_check.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = allergy_check.py; sourceTree = "<group>"; };
+		66D1EAF02BAFD06100202996 /* get_allergens.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = get_allergens.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				661ED89F2BAFC8F500DC5E0F /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +89,7 @@
 				661ED8772BAF4AD400DC5E0F /* AllerETests */,
 				661ED8812BAF4AD400DC5E0F /* AllerEUITests */,
 				661ED8652BAF4AD100DC5E0F /* Products */,
+				661ED8982BAFC7F100DC5E0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +108,10 @@
 			children = (
 				661ED8672BAF4AD100DC5E0F /* AllerEApp.swift */,
 				661ED8692BAF4AD100DC5E0F /* ContentView.swift */,
+				661ED8912BAF894800DC5E0F /* main.py */,
+				66D1EAF02BAFD06100202996 /* get_allergens.py */,
+				66D1EAEE2BAFD05500202996 /* allergy_check.py */,
+				661ED8932BAF931D00DC5E0F /* aller_data.py */,
 				661ED86B2BAF4AD400DC5E0F /* Assets.xcassets */,
 				661ED86D2BAF4AD400DC5E0F /* Preview Content */,
 			);
@@ -127,6 +143,14 @@
 			path = AllerEUITests;
 			sourceTree = "<group>";
 		};
+		661ED8982BAFC7F100DC5E0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				661ED8992BAFC7F100DC5E0F /* Python3.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +167,9 @@
 			dependencies = (
 			);
 			name = AllerE;
+			packageProductDependencies = (
+				661ED89E2BAFC8F500DC5E0F /* PythonKit */,
+			);
 			productName = AllerE;
 			productReference = 661ED8642BAF4AD100DC5E0F /* AllerE.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +242,9 @@
 				Base,
 			);
 			mainGroup = 661ED85B2BAF4AD100DC5E0F;
+			packageReferences = (
+				661ED89D2BAFC8F500DC5E0F /* XCRemoteSwiftPackageReference "PythonKit" */,
+			);
 			productRefGroup = 661ED8652BAF4AD100DC5E0F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,8 +261,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				661ED8922BAF894800DC5E0F /* main.py in Resources */,
+				66D1EAEF2BAFD05500202996 /* allergy_check.py in Resources */,
+				661ED8942BAF931D00DC5E0F /* aller_data.py in Resources */,
 				661ED86F2BAF4AD400DC5E0F /* Preview Assets.xcassets in Resources */,
 				661ED86C2BAF4AD400DC5E0F /* Assets.xcassets in Resources */,
+				66D1EAF12BAFD06100202996 /* get_allergens.py in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,7 +381,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -404,7 +438,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -422,6 +456,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AllerE/Preview Content\"";
+				DEVELOPMENT_TEAM = 4MR97D8627;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -429,6 +464,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -450,6 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AllerE/Preview Content\"";
+				DEVELOPMENT_TEAM = 4MR97D8627;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -457,6 +494,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -582,6 +620,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		661ED89D2BAFC8F500DC5E0F /* XCRemoteSwiftPackageReference "PythonKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pvieito/PythonKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		661ED89E2BAFC8F500DC5E0F /* PythonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 661ED89D2BAFC8F500DC5E0F /* XCRemoteSwiftPackageReference "PythonKit" */;
+			productName = PythonKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 661ED85C2BAF4AD100DC5E0F /* Project object */;
 }
